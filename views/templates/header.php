@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link href="../css/style.css" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des clients</title>
-    <style>
-        /* Styles simples pour le tableau */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-        }
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #333;
-        }
-        th, td {
-            padding: 8px 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #555;
-            color: #fff;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <title>Gestion des clients</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="?">📋 Gestion des clients</a>
+            <div class="" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="?">🏠 Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=new-client">➕ Nouveau client</a>
+                    </li>
+                    <li class="nav-item">
+                        <?php if(isset($_SESSION['username'])): ?>
+                            <a class="nav-link" href="?action=disconnect">🔐 Déconnexion</a>
+                        <?php else: ?>
+                            <a class="nav-link" href="?page=login">🔓 Connexion</a>
+                        <?php endif; ?>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <?php if(isset($_SESSION['username'])): ?>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
+                <span class="navbar-text">
+                    Vous naviguez en tant que: <?= $_SESSION['username'] ?>
+                </span>
+            </div>
+        </nav>
+    <?php endif; ?>
