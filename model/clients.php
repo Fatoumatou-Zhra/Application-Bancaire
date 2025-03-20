@@ -23,6 +23,13 @@ class Client{
         $stmt->execute();
     }
 
+    public function hasCompte($id_client) {
+        $sql = "SELECT id FROM compte WHERE id_client = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id_client]);
+        return $stmt->fetch() ? true : false;
+    }  
+
     public function getCLient($id) {
         $stmt = $this->pdo->prepare("SELECT * FROM client WHERE id=:id");
         $stmt->bindParam(':id', $id);

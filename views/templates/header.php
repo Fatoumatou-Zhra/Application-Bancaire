@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="?">📋 Gestion des clients</a>
+            <a class="navbar-brand" href="?">🏦 B-Banque</a>
             <div class="" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">

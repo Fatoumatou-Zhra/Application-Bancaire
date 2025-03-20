@@ -28,9 +28,21 @@ class ClientController{
         require_once __DIR__ . '/../views/modify-client.php';
     }
 
-    public function deleteClient($id){
+    public function deleteClient($id) {
+        if ($this->clientModel->hasCompte($id)) {
+            echo "<script>
+                    alert('❌ Impossible de supprimer ce client car il possède un compte.');
+                    window.history.back();
+                  </script>";
+            exit; // Arrête l'exécution pour éviter toute suppression
+        }
+    
         $this->clientModel->deleteClient($id);
-        header('Location: index.php');
+        echo "<script>
+                alert('✅ Client supprimé avec succès.');
+                window.location.href = 'index.php';
+              </script>";
+        exit;
     }
 
     public function createClient(string $nom, string $prenom, string $email, string $telephone, $adresse){
