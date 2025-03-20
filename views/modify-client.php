@@ -26,7 +26,7 @@
         </div>
         <button type="submit" class="btn btn-success">Mettre à jour</button>
     </form>
-    <a href="?id=<?= htmlspecialchars($task['id']) ?>&action=voir" class="btn btn-secondary mt-3">Annuler</a>
+    <a href="?id=<?= htmlspecialchars($client['id']) ?>&action=voir" class="btn btn-secondary mt-3">Annuler</a>
 </div>
 
 <?php require_once __DIR__ . '/templates/footer.php'; ?>
