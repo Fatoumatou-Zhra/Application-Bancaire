@@ -15,10 +15,14 @@
             <label for="solde" class="form-label">Solde :</label>
             <input type="text" class="form-control" id="solde" name="solde" required>
         </div>
-        <div class="mb-3">
-            <label for="client" class="form-label">Client :</label>
-            <input type="text" class="form-control" id="id_client" name="od_client" required>
-        </div>
+        <select class="form-control" id="id_client" name="id_client" required>
+            <option value="">Sélectionner un client</option>
+            <?php foreach ($clients as $client): ?>
+                <option value="<?= htmlspecialchars($client['id']) ?>">
+                    <?= htmlspecialchars($client['nom'] . ' ' . $client['prenom']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
         <button type="submit" class="btn btn-primary">Ajouter</button>
     </form>
 </div>

@@ -19,6 +19,9 @@
                         <a class="nav-link" href="?page=new-client">➕ Nouveau client</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="?page=new-compte">➕ Nouveau compte</a>
+                    </li>
+                    <li class="nav-item">
                         <?php if(isset($_SESSION['username'])): ?>
                             <a class="nav-link" href="?action=disconnect">🔐 Déconnexion</a>
                         <?php else: ?>

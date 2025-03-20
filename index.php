@@ -30,14 +30,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'create' && isset($_POST['nom']
     $adminController->connect($_POST['username'], $_POST['password']);
 } elseif (isset($_GET['action']) && $_GET['action'] === 'disconnect') {
        $adminController->disconnect();
-} else {
+} elseif (!isset($_GET['action']) && !isset($_GET['page'])) {
     $clientController->listAllClients();
 }
 
 $compteController = new CompteController();
 
 if (isset($_GET['action']) && $_GET['action'] == 'create' && isset($_POST['rib']) && !empty($_POST['rib']) && isset($_POST['solde']) && !empty($_POST['solde']) && isset($_POST['type_compte']) && !empty($_POST['type_compte'])&& isset($_POST['id_client']) && !empty($_POST['id_client'])) {
-    $compteController->createCompte($_POST['rib'], $_POST['solde'], $_POST['typpe_compte'], $_POST['id_client']);
+    $compteController->createCompte($_POST['rib'], $_POST['solde'], $_POST['type_compte'], $_POST['id_client']);
 } if (isset($_GET['action']) && $_GET['action'] == 'update' && isset($_POST['rib']) && !empty($_POST['rib']) && isset($_POST['solde']) && !empty($_POST['solde']) && isset($_POST['type_compte']) && !empty($_POST['type_compte']) && isset($_POST['id_client']) && !empty($_POST['id_client'])){
     $compteController->updateCompte($_POST['id'], $_POST['solde'], $_POST['rib'], $_POST['type_compte'], $_POST['id_client']);
 } elseif (isset($_GET['action']) && isset($_GET['id']) && $_GET['action'] === 'supprimer'){
@@ -54,6 +54,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'create' && isset($_POST['rib']
     $adminController->connect($_POST['username'], $_POST['password']);
 } elseif (isset($_GET['action']) && $_GET['action'] === 'disconnect'){
     $adminController->disconnect();
-} else {
+} elseif (!isset($_GET['action']) && !isset($_GET['page'])) {
     $compteController->listAllComptes();
 }

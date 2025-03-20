@@ -5,8 +5,6 @@ require_once __DIR__ . '/../model/clients.php';
 
 class CompteController{
     private $compteModel;
-    private $clientModel;
-
     public function __construct(){
         $this->compteModel = new Compte();
         $this->clientModel = new Client(); 
